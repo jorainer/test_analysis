@@ -1,0 +1,31 @@
+---
+title: "Identification of features with difference in abundances between group a and b"
+author: "Johannes Rainer"
+---
+
+## Introduction
+
+Goal of the analysis is to...
+
+```{r}
+library(pander)
+
+dta <- read.table("test_analysis/experiment_data.txt", sep = "\t", header = TRUE)
+```
+
+We have abundance estimated for `r nrow(dta)` features in `r ncol(dta)` samples.
+
+## Exploratory analysis
+
+Next we evaluate signal distribution of the features in the samples.
+
+```{r}
+boxplot(dta)
+```
+
+...
+
+## Identification of da features
+
+## Session Information
+
