@@ -27,5 +27,26 @@ boxplot(dta)
 
 ## Identification of da features
 
+just do the analysis.
+
+```{r}
+tts <- apply(dta, MARGIN = 1, function(z) t.test(z[1:40], z[41:80]))
+res <- do.call(rbind, lapply(tts, function(z) c(estimate = z$estimate,
+                                                pvalue = z$p.value)))
+```
+
+At last we adjust the ...
+
+```{r}
+res <- cbind(res, adj.pvalue = p.adjust(res[, "pvalue"], method = "BH"))
+```
+
+```{r, results = "asis"}
+pandoc.table(res, style = "rmarkdown")
+```
+
 ## Session Information
 
+```{r}
+sessionInfo()
+```
